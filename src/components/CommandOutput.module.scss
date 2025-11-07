@@ -1,0 +1,125 @@
+@use "../styles/variables" as *;
+
+.command-output {
+  margin-bottom: spacing(lg);
+  font-family: "SF Mono", Monaco, monospace;
+  font-size: font-size(sm);
+
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: spacing(sm);
+    margin-bottom: spacing(sm);
+    color: var(--text);
+  }
+
+  &__prompt {
+    color: var(--terminal-green);
+    font-weight: 600;
+  }
+
+  &__command {
+    color: var(--terminal-cyan);
+  }
+
+  &__result {
+    padding-left: spacing(lg);
+    color: var(--text);
+    line-height: 1.6;
+
+    h2 {
+      color: var(--terminal-yellow);
+      font-size: font-size(xl);
+      margin-bottom: spacing(md);
+      font-weight: 600;
+    }
+
+    h3 {
+      color: var(--terminal-blue);
+      font-size: font-size(lg);
+      margin: spacing(md) 0 spacing(sm);
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: spacing(sm);
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: spacing(sm) 0;
+
+      li {
+        margin-bottom: spacing(xs);
+        color: var(--text-secondary);
+
+        &:before {
+          content: "▹ ";
+          color: var(--terminal-green);
+          margin-right: spacing(xs);
+        }
+      }
+    }
+
+    .highlight {
+      color: var(--terminal-cyan);
+      font-weight: 500;
+    }
+
+    .success {
+      color: var(--success);
+    }
+
+    .error {
+      color: var(--error);
+    }
+
+    .warning {
+      color: var(--warning);
+    }
+  }
+
+  &__section {
+    margin-bottom: spacing(lg);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: spacing(md);
+    margin-top: spacing(md);
+  }
+
+  &__item {
+    padding: spacing(sm);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: radius(md);
+
+    strong {
+      color: var(--terminal-yellow);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .command-output {
+    &__result {
+      padding-left: spacing(sm);
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@use "./variables" as *;
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  // Light theme (default)
+  --bg: #{color(light-bg)};
+  --surface: #{color(light-surface)};
+  --surface-alt: #{color(light-surface-alt)};
+  --text: #{color(light-text)};
+  --text-secondary: #{color(light-text-secondary)};
+  --border: #{color(light-border)};
+  --shadow: #{color(light-shadow)};
+  --accent: #{color(light-accent)};
+  --accent-hover: #{color(light-accent-hover)};
+  --success: #{color(light-success)};
+  --warning: #{color(light-warning)};
+  --error: #{color(light-error)};
+
+  // Accent colors
+  --accent-blue: #{color(accent-blue)};
+  --accent-purple: #{color(accent-purple)};
+  --accent-green: #{color(accent-green)};
+  --accent-orange: #{color(accent-orange)};
+  --accent-red: #{color(accent-red)};
+  --accent-cyan: #{color(accent-cyan)};
+}
+
+[data-theme="dark"] {
+  --bg: #{color(dark-bg)};
+  --surface: #{color(dark-surface)};
+  --surface-alt: #{color(dark-surface-alt)};
+  --text: #{color(dark-text)};
+  --text-secondary: #{color(dark-text-secondary)};
+  --border: #{color(dark-border)};
+  --shadow: #{color(dark-shadow)};
+  --accent: #{color(dark-accent)};
+  --accent-hover: #{color(dark-accent-hover)};
+  --success: #{color(dark-success)};
+  --warning: #{color(dark-warning)};
+  --error: #{color(dark-error)};
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Courier New", "Consolas", "Monaco", "Lucida Console", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  color: var(--text);
+  transition: background $transition-normal, color $transition-normal;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+code,
+pre {
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
+    "Courier New", monospace;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+// Utility classes
+.flex-center {
+  @include flex-center;
+}
+
+.custom-scrollbar {
+  @include custom-scrollbar;
+}

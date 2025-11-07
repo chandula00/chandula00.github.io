@@ -1,0 +1,16 @@
+@use "./styles/variables" as *;
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  transition: background $transition-normal;
+
+  [data-theme="light"] & {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+}
+
+.main {
+  width: 100%;
+}

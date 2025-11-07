@@ -1,0 +1,479 @@
+%-------------------------
+% Resume in Latex
+% Author : Chandula Adhikari
+% License : MIT
+%------------------------
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\topmargin}{0.55in}
+
+\input{glyphtounicode}
+
+% -------------------- FONT OPTIONS --------------------
+% sans-serif
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% serif
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-1in} % Default was -.5in
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-5pt}\color{MidnightBlue}\scshape\raggedright\large
+}{}{0em}{}[\color{gray}\titlerule \vspace{-5pt}]
+
+
+
+% Subsection formatting
+\titleformat{\subsection}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{\hspace{-.15in}}{0em}{}[\color{gray}\vspace{-8pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% -------------------- CUSTOM COMMANDS --------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \footnotesize{#2} \\
+      \small#3 & \small #4 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubheadingSub}[6]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \footnotesize{#2} \\
+      {\small#3} & {\small #4} \\
+      \textit{\small#5} & \textit{\small #6} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSkillSubheading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabularx}{\textwidth}{@{}>{\hsize=.40\hsize}X>{\hsize=1.60\hsize}X@{}}
+      \textbf{\small#1} & \small #2 \\
+    \end{tabularx}\vspace{-7pt}
+}
+
+\newcommand{\resumeExperienceSubheading}[2]{
+    \vspace{-19pt}\item
+    \begin{tabularx}{\textwidth}{@{}>{\hsize=1.4\hsize}X>{\hsize=0.6\hsize}X@{}}
+      \small#1 & \small #2 \\
+    \end{tabularx}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \footnotesize #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcolumntype{B}{>{\bfseries}l}
+\newcolumntype{L}{X}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlength{\footskip}{4.08003pt}
+
+
+
+% -------------------- START OF DOCUMENT --------------------
+\begin{document}
+
+% -------------------- HEADING--------------------
+\begin{flushright}
+  %\vspace{-4pt}
+  \color{gray}
+  \item
+  % Last Updated on March 28th, 2024
+\end{flushright}
+
+\vspace{-0.6in}
+\begin{center}
+    \textbf{\Huge \scshape Chandula Adhikari} \\ \vspace{2pt}
+    \large 
+    \textcolor{MidnightBlue}{Department of Computer Engineering, University of Peradeniya, Srilanka}\\ \vspace{5pt}
+    \small 
+    \faIcon{envelope}
+    \href{mailto:rajcadhikari@gmail.com}
+    {\underline{rajcadhikari@gmail.com}} $  $ $ \mid $ $  $
+    \faIcon{phone}
+    +94 711530046 $  $ $ \mid $ $  $
+    \faIcon{github}
+    \href{https://github.com/chandula00}{\underline{github.com/chandula00}} \\ \vspace{2pt}
+    \faIcon{linkedin}
+    \href{https://www.linkedin.com/in/janith-chandula-adhikari-5543a5223}{\underline{linkedin.com/in/chandula-adhikari}} 
+\end{center}
+
+% -------------------- ABOUT ME --------------------
+\section{\textbf{Research Interests}}
+    \vspace{1pt}
+    % \begin{center}
+    %     \hspace{0.12cm}
+    %     Computer Vision \hspace{2.13cm}
+    %     Machine Learning \hspace{2.13cm}
+    %     Explainable AI \hspace{2.13cm}
+    %     Embedded Systems
+    % \end{center}
+
+
+    
+        My primary research interest is in \textbf{computational biology}, focusing on integrating \textbf{molecular biology} with \textbf{deep learning, data science} and \textbf{computer vision} to develop adaptive \textbf{Human-AI collaborative systems} for healthcare diagnostics and molecular-level analysis.
+    
+    
+
+    
+
+    
+
+% -------------------- EDUCATION --------------------
+\section{\textbf{Education}}
+    \resumeSubHeadingListStart
+    
+        \vspace{2pt}
+        \resumeSubheading
+            {University of Peradeniya}{\textcolor{MidnightBlue}{Mar. 2021 - Aug. 2025}}
+            {BSc.Eng(Hons.) in Computer Engineering}{Current GPA: \textbf{\normalsize 3.85/4.0}}
+        \vspace{2pt}
+        \resumeSubheadingSub
+            {Dharmaraja College, Kandy}{\textcolor{MidnightBlue}{Jan. 2006 - Dec. 2019}}
+            {G.C.E. Advanced Level Examination - 467 from 19500+ participants nationwide}{Z-Score: \textbf{\normalsize 2.2069}}
+        % {}{467 from 35000+ participants nationwide}
+
+        % \subsection{Coursework}
+        %   \textbf{Courses:} Object-Oriented Programming, Data Structures \& Algorithms, Embedded Systems, Discrete Math, Linear Algebra, Calculus, Physics, Probability \& Statistics \\
+        %   \textbf{Awards:} Dean's Honor List (3x), AP Scholar with Distinction (2x), World Language History Award (Spanish)
+
+    \resumeSubHeadingListEnd
+    \vspace{-20pt}
+
+% % -------------------- Publications --------------------
+\section{\textbf{Publications}}
+  \resumeSubHeadingListStart
+        \vspace{2pt}
+        
+        \resumeProjectHeading
+            {\textbf{\href{https://github.com/orgs/cepdnaclk/teams/admins-cepdnaclk-github-io}
+            {\underline{Optimized Multi-Processor System-on-Chip (MPSoC) Design for Low-Resource JPEG Encoding}}}}{}
+            \vspace{-2pt}
+            \resumeExperienceSubheading
+                {\emph{K.H. Gunawardana, \textbf{R.A.J.C. Adhikari}, I. Nawinne}}{}
+            \vspace{-12pt}
+            \resumeItemListStart
+            \resumeItem{Proposed a pipelined MPSoC architecture for efficient JPEG encoding using Altera Nios II/e cores on a Cyclone IV FPGA, integrating custom instructions, FIFO-based inter-core communication, and superscalar enhancements to maximize throughput.}
+            \resumeItem{Presented at: ICAC 2024, Published in: IEEE Xplore}
+          \resumeItemListEnd          
+    \resumeSubHeadingListEnd 
+    \vspace{-10pt}
+
+% -------------------- EXPERIENCE --------------------
+\section{\textbf{Experience}}
+  \resumeSubHeadingListStart
+        \vspace{2pt}
+
+        \resumeProjectHeading
+            {\textbf{\href{https://people.ce.pdn.ac.lk/staff/temporary-academic-staff/}
+            {\underline{Temporary Instructor (Teaching Assistant)}}} $|$ 
+
+            \footnotesize\emph{Department of Computer Engineering} \vspace{5pt}}{\textcolor{MidnightBlue}{Sep. 2025 -- Present}}
+                
+                \small{conducting lab sessions, preparing tutorials, lab specification sheets for courses}{}
+
+
+        \resumeProjectHeading
+            {\textbf{Intern Data Scientist} $|$ 
+            \footnotesize\emph{\href{https://www.octave.lk/}{\underline{OCTAVE}}, Jhon Keells Holdings} \vspace{5pt}}{\textcolor{MidnightBlue}{July 2024 -- Dec. 2024}}
+            
+                \small{Contributed to production-grade data pipelines, developed and validated enterprise dashboards for \textbf{Cinnamon Hotels}, and built customer segmentation solutions that directly supported digital marketing campaigns\\}{}
+            \small
+                {\textbf{Technologies Used:} Databricks, PySpark, SQL (Spark SQL \& T-SQL), Azure DevOps, MLflow, Power BI}{}
+        
+        \resumeProjectHeading
+            {\textbf{\href{https://github.com/orgs/cepdnaclk/teams/admins-cepdnaclk-github-io}
+            {\underline{Administrator/ Developer}}} $|$ \footnotesize\emph{\href{https://github.com/cepdnaclk}{\underline{cepdnaclk}}, GitHub Organization} \vspace{5pt}}{\textcolor{MidnightBlue}{Oct. 2023 -- Present}}
+            
+                \small{Serve as an administrator, overseeing error resolution and repository management within the github organization of Department of Computer Engineering}{}
+            \resumeExperienceSubheading
+                {\textbf{Technologies Using:} Jenkins, Jekyll, Fast API, GitHub}{}
+        
+        
+        \resumeProjectHeading
+            {\textbf{\href{https://people.ce.pdn.ac.lk/students/e19/008/}
+            {\underline{Undergraduate Teaching Assistant}}} $|$ \footnotesize\emph{Department of Computer Engineering}\vspace{10pt}}{\textcolor{MidnightBlue}{Nov. 2023 -- July 2025}}
+            \small{Digital Design(CO221), Computer Architecture(CO224), Third Year Project(CO300), Embedded Systems(CO321), Data Structures and Algorithms(CO1030) - Assisting labs, quizzes, and course materials, supporting students in Arm Assembly, Verilog, AVR programming and project mentoring.}
+            \vspace{-4pt}
+
+    \resumeSubHeadingListEnd 
+
+% -------------------- PROJECTS --------------------
+\section{\textbf{Selected Projects}}
+    \resumeSubHeadingListStart
+        \vspace{4pt}
+        \resumeProjectHeading
+        {\textbf{AI-Assisted Tool for Assessing Quality of Final Root Canal Treatment Using}}{\textcolor{MidnightBlue}{Jan. 2025 -- Present}}
+        \resumeProjectHeading
+            {\textbf{Dental IOPA Radiographs} $|$ \emph{Group $|$ \href{https://github.com/cepdnaclk/e19-4yp-Quality-Assessment-of-Final-Root-Canal-Treatment-Using-Intra-Oral-Periapical-Radiographs}{\faIcon{github}}}}{}
+        \resumeItemListStart
+            \resumeItem{Developing an explainable AI framework for automated root canal treatment (RCT) quality assessment using 1,000 anonymized intraoral periapical radiographs. The four-stage pipeline—comprising dataset curation, expert-guided annotation, segmentation, and multi-parameter evaluation—enables pixel- and geometry-based analysis of clinical parameters such as filling length, lateral seal, voids, and irregularities.}
+            \resumeItem{\textbf{Contribution:} Dataset preparation, annotation design, quality parameter evaluation, and explainable output visualization.}
+            \resumeItem{\textbf{Technologies:} Python, PyTorch, YOLO, OpenCV, Keras.}
+        \resumeItemListEnd
+
+        \vspace{4pt}
+        \resumeProjectHeading
+        {\textbf{Analysis of RNA Velocity Reliability in Low-Dimensional Projections} $|$ \emph{Individual }}{\textcolor{MidnightBlue}{Feb. 2025 -- Aug.2025}}
+        \resumeItemListStart
+            \resumeItem{Investigated RNA velocity reliability in low-dimensional spaces by benchmarking custom autoencoder architectures against traditional methods (PCA, t-SNE, UMAP) across 4 biological datasets, demonstrating that denoising autoencoders significantly outperform standard approaches in preserving local neighborhood structure and velocity field coherence—critical for accurate cellular differentiation trajectory inference}
+            \resumeItem{\textbf{Technologies:} Deep Learning (Denoising Autoencoders, VAEs, DNNs) $|$ Dimensionality Reduction (PCA, t-SNE, UMAP) $|$ RNA Velocity Analysis (scVelo dynamical model, Velocyto) $|$ Evaluation Metrics (k-NN preservation, distance correlation, Jaccard similarity)}
+        \resumeItemListEnd
+
+
+        \vspace{4pt}
+        \resumeProjectHeading
+            {\textbf{BeeZee: Smart Beehive Monitoring System} $|$ \emph{Group $|$ \href{https://github.com/cepdnaclk/e19-3yp-beehive-monitoring-system}{\faIcon{github}} $|$ \href{https://cepdnaclk.github.io/e19-3yp-beehive-monitoring-system/}{\faIcon{globe}}}}{\textcolor{MidnightBlue}{Nov. 2023 - July 2024}}
+        \resumeItemListStart
+            \resumeItem{Collaborative research with the Faculty of Agriculture, University of Peradeniya to detect early signs of bee colony abscondment. Designed and built a cloud-connected data collection unit with sensors ($CO_2$, humidity, temperature, weight) and camera, integrated into a real-time dashboard. Successfully implemented pollen-carrying bee detection using YOLOv8 and StrongSORT for object tracking.}
+            \resumeItem{\textbf{Contribution:} Designed hardware box, assembled circuits, calibrated sensors, developed front-end dashboard, and built the computer vision pipeline for bee detection and tracking.}
+            \resumeItem{\textbf{Technologies:} Raspberry Pi, AWS(S3, IoT Core, Lambda), Node.js, MongoDB, YOLOv8, StrongSORT.}
+          \resumeItemListEnd
+
+
+        \vspace{4pt}
+        \resumeProjectHeading
+            {\textbf{CricVision: Optimizing Dynamic Batting Orders in T20 Cricket} $|$ \emph{Group $|$ \href{https://github.com/cepdnaclk/e19-co544-cricket-analytics-and-prediction}{\faIcon{github}} $|$ \href{https://cepdnaclk.github.io/e19-co544-cricket-analytics-and-prediction/}{\faIcon{globe}}}}{\textcolor{MidnightBlue}{Mar. 2024 -- Present}}
+        \resumeItemListStart
+            \resumeItem{Developed a data-driven system to dynamically optimize batting orders in T20 cricket using machine learning. Built a multi-output regression pipeline to predict batter performance (runs, strike rate), final team score, and Net Run Rate (NRR), enhancing decision-making after each wicket.}
+            \resumeItem{\textbf{Data set :} \href{https://cricsheet.org/}
+            {\underline{cricsheet.org}}}
+            \resumeItem{\textbf{Contribution:} Engineered features from Cricsheet data, web-scraped contextual data (player types, weather), implemented multiple regression models (XGBoost, Chained, Neural Networks), and deployed the best-performing model via Flask for real-time insights.}
+            \resumeItem{\textbf{Technologies:} Python, Scikit-learn, XGBoost, Flask, Pandas, Matplotlib, BeautifulSoup.}
+        \resumeItemListEnd
+
+        
+        % \vspace{4pt}
+        % \resumeProjectHeading
+        %     {\textbf{VisitLog: Digital Reporting Platform for Technical Visits} $|$ \emph{Group $|$ \href{https://github.com/cepdnaclk/e19-co227-digital-reporting-of-technical-visits}{\faIcon{github}} $|$ \href{https://cepdnaclk.github.io/e19-co227-digital-reporting-of-technical-visits/}{\faIcon{globe}}}}{\textcolor{MidnightBlue}{Aug. 2023 -- Nov. 2023}}
+        % \resumeItemListStart
+        %     \resumeItem{Developed a cross-platform system to streamline technical service documentation, covering repairs, troubleshooting, and maintenance, with recipient approval. The solution includes a Flutter-based mobile app for technicians and a React.js dashboard for administrators to manage jobs and personnel.}
+        %      \resumeItem{\textbf{Contribution:} Built the entire mobile app, designed and developed the admin dashboard, managed Firebase collections, and implemented an NLP-based technician allocation model using availability, expertise, and job descriptions.}
+        %     \resumeItem{\textbf{Technologies:} React.js, Flutter, Firebase, Figma, Python.}
+        % \resumeItemListEnd
+  
+        \vspace{4pt}
+        \resumeProjectHeading
+            {\textbf{Obstacle Robot Swarm for Swarm Robotic Project} $|$ \emph{Group $|$ \href{https://github.com/Pera-Swarm}{\faIcon{github}} $|$ \href{https://pera-swarm.ce.pdn.ac.lk/}{\faIcon{globe}}}}{\textcolor{MidnightBlue}{Mar. 2024 -- Present}}
+        \resumeItemListStart
+            \resumeItem{An obstacle bot is an automated robot designed for a swarm robotic arena. It can move to desired positions, avoid collisions, and be programmed as static or dynamic obstacles.}
+            \resumeItem{ \textbf{Contribution:} Updated firmware to support autonomous collision handling and integrated obstacle robots into the existing swarm platform for simulating dynamic obstacle scenarios.}
+            \resumeItem{\textbf{Technologies:} Arduino, Python, Java}
+        \resumeItemListEnd
+
+        
+        % \vspace{8pt}
+        % \resumeProjectHeading
+        %     {\textbf{IntelliSwitcher: Intelligent Domestic Energy Saving System} $|$ \emph{Group $|$ \href{https://github.com/IntelliSwitcher}{\faIcon{github}}}}{\textcolor{MidnightBlue}{June 2023 -- Sep. 2023}}
+        % \resumeItemListStart
+        %     \resumeItem{IoT device and mobile app system designed to empower households to effortlessly reduce energy consumption}
+        %     \resumeItem{By continuously monitoring power factors, voltage, and current consumption, we generate real-time predictions of monthly energy consumption.}
+        %     \resumeItem{\textbf{Technologies:} React Native, Firebase, scikit-learn}
+        % \resumeItemListEnd
+        
+        % \vspace{4pt}
+        % \resumeProjectHeading
+        %     {\textbf{MPSoC Design for JPEG encoding} $|$ \emph{Group $|$ \href{https://github.com/chandula00/CO503-Advanced-Embedded-Systems-Labs}{\faIcon{github}}}}{\textcolor{MidnightBlue}{May. 2024 -- Present}}
+        % \resumeItemListStart
+        %     \resumeItem{Implementing a pipelined JPEG encoder on an FPGA(Altera DE2-115) using Nios II CPUs and hardware FIFO queues. The JPEG encoding process is broken down into six stages}
+        %     \resumeItem{Using custom instruction hardware blocks, Custom FIFOs and implementing a super-scalar pipeline improved the performance}
+        %     \resumeItem{\textbf{Technologies:} Quartus II , Nios II Software Build Tool, Altera DE2-115}
+        % \resumeItemListEnd
+
+        
+        \vspace{2pt}
+          
+    \resumeSubHeadingListEnd
+
+
+
+    
+% -------------------- SKILLS --------------------
+\section{\textbf{Technical Skills}}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+ \vspace{-2pt}
+\resumeSkillSubheading
+  {Languages} {Python, C/C++, Java, JavaScript/TypeScript, Verilog HDL, ARM Assembly}
+  \vspace{-22pt}
+\resumeSkillSubheading
+  {Developer Tools} {Git/GitHub, Unix Shell, VS Code, IntelliJ PyCharm/IDEA, Jekyll, Jenkin}
+\vspace{-23pt}
+\resumeSkillSubheading
+  {Frameworks} {React.js, Express.js, Flutter, Spring-Boot}
+\vspace{-22pt}
+\resumeSkillSubheading
+  {Libraries} {NumPy, Pandas, Matplotlib, OpenCV, TensorFlow, scikit-learn, Seaborn}
+\vspace{-3pt}
+\end{itemize} 
+
+% -------------------- ACHIEVEMENTS --------------------
+\section{\textbf{Achievements / Competitions}}
+
+ \resumeSubHeadingListStart
+
+          \resumeProjectHeading
+          {\textbf{MoraXtream 8.0} $|$ \footnotesize{12 hour algorithmic programming competition\vspace{8pt}}}{\textcolor{MidnightBlue}{Nov. 2023}}
+          {\small{Organized by the IEEE Student Branch of the University of Moratuwa}}
+          \vspace{-3pt}
+          \resumeExperienceSubheading
+          {Team Name - Five4Five, National Rank - 4(Out of 450+ participants)}{}
+
+          \vspace{-5pt}
+          \resumeProjectHeading
+          {\textbf{\href{https://ieeextreme.org/ieeextreme-17-0-ranking/}{\underline{IEEEXtream 17.0}}} $|$ \footnotesize{24 hour algorithmic programming competition\vspace{8pt}}}{\textcolor{MidnightBlue}{Nov. 2023}}
+          {\small{Team Name - Five4Five, Global Rank - 374(Out of 7091 participants)}}
+
+          \vspace{-5pt}
+          \resumeProjectHeading
+          {\textbf{Aces Coders v10.0} $|$ \footnotesize{12 hour algorithmic programming competition\vspace{8pt}}}{\textcolor{MidnightBlue}{Oct. 2023}}
+          {\small{Organized by the Association of Computer Engineering Students of the University of Peradeniya}}
+          \vspace{-4pt}
+          \resumeExperienceSubheading
+          {Team Name - Five4Five, National Rank - 12(Out of 350+ participants)}{}
+
+          \vspace{-5pt}
+          \resumeProjectHeading
+          {\textbf{Aces PreCoders v10.0} $|$ \footnotesize{6 hour algorithmic programming competition\vspace{8pt}}}{\textcolor{MidnightBlue}{Sep. 2023}}
+          {\small{Team Name - Five4Five, Rank - 2(Out of 50+ participants)}}
+
+          \vspace{-3pt}
+          \resumeProjectHeading
+          {\textbf{NBQSA} $|$ \footnotesize{National ICT Awards\vspace{8pt}}}{\textcolor{MidnightBlue}{Aug. 2023}}
+          {\small{IntelliSwitcher: Intelligent Domestic Energy Optimizing System $|$ \href{https://github.com/IntelliSwitcher}{\faIcon{github}}}}
+           \vspace{-3pt}
+          \resumeExperienceSubheading
+          {Partcipation}{}
+          \vspace{-3pt}
+    \resumeSubHeadingListEnd 
+
+% -------------------- Certifications --------------------
+\section{\textbf{Selected Certificates}}
+    \resumeSubHeadingListStart
+
+          \resumeProjectHeading
+          {\textbf{Machine Learning Specialization} $|$ \footnotesize{Stanford University and DeepLearning.AI(Coursera)}}{\textcolor{MidnightBlue}{Apr. 2024}}       
+          \resumeItemListStart
+            \resumeItem{{\href{https://coursera.org/share/c0d953d1c02645962a825bd697413435}{\underline{Supervised Machine Learning: Regression and Classification}}}}     \resumeItem{{\href{https://www.coursera.org/account/accomplishments/verify/HT4C6JTZZ57R}{\underline{Advanced Learning Algorithms}}}}            
+        \resumeItemListEnd
+
+        % \vspace{1pt}
+        % \resumeProjectHeading
+        %   {\textbf{\href{https://courses.edx.org/certificates/3d03dd7fa6814b86b7d65ddc3d1212d4}{AWS Cloud Practitioner Essentials}} $|$ \footnotesize{AWS and edX}}{\textcolor{MidnightBlue}{Oct. 2023}}
+        
+        \vspace{1pt}
+
+        \resumeProjectHeading
+          {\textbf{\href{https://courses.edx.org/certificates/a2edf86bf72a4bd088f045e94203f3f6}{Python for Data Science, AI and Development}} $|$ \footnotesize{IBM and Coursera}}{\textcolor{MidnightBlue}{Mar. 2023}}
+        
+        
+        
+        % \resumeProjectHeading
+        %   {\textbf{\href{https://courses.edx.org/certificates/5d016e74d8ce48c1b03aa545b937d5ce}{Linux Commands and Shell Scripting Basics}} $|$ \footnotesize{IBM and edX}}{\textcolor{MidnightBlue}{Feb. 2023}}  
+    \vspace{4pt}     
+    \resumeSubHeadingListEnd
+
+% -------------------- Extra-Curricular Activities --------------------
+\section{\textbf{Extra-Curricular Activitie}s}
+\resumeSubHeadingListStart
+        \vspace{0pt}
+        \resumeProjectHeading
+            { Member of the Web Consultation team of University of Peradeniya\vspace{8pt}}{\textcolor{MidnightBlue}{2023 -- Present}}
+        \vspace{-14pt}
+        \resumeProjectHeading
+            { Senior Member of FASE \small{(Foundation of Astronomical Studies and Exploration)}\vspace{8pt}}{\textcolor{MidnightBlue}{2019 -- Present}}
+        \vspace{-14pt}
+        \resumeProjectHeading
+            { Member of Rotaract Club of University of Peradeniya\vspace{8pt}}{\textcolor{MidnightBlue}{2022 -- Present}}
+        \vspace{-14pt}
+        \resumeProjectHeading
+            { Member of the Athletics team of Dharmaraja College, Kandy\vspace{8pt}}{\textcolor{MidnightBlue}{2013 -- 2017}}
+        \vspace{-4pt}  
+    \resumeSubHeadingListEnd 
+
+
+% -------------------- REFERENCES --------------------
+\section{\textbf{References}}
+\vspace{5pt}
+\resumeSubHeadingListStart
+
+\item{
+    \textbf{\href{https://people.ce.pdn.ac.lk/staff/academic/roshan-ragel/}{\underline{Prof. Roshan G. Ragel}}} $|$ \href{mailto:roshanr@eng.pdn.ac.lk}{roshanr@eng.pdn.ac.lk}
+    \\ \vspace{2pt}
+    \small{Professor, Department of Computer Engineering, Faculty of Engineering, University of Peradeniya, Sri Lanka}
+}
+
+\item{
+    \textbf{\href{https://people.ce.pdn.ac.lk/staff/academic/isuru-nawinne/}{\underline{Dr. Isuru Nawinne}}}  $|$ \href{mailto:isurunawinne@eng.pdn.ac.lk}{isurunawinne@eng.pdn.ac.lk}
+    \\ \vspace{1pt}
+    \small{Senior Lecturer, Department of Computer Engineering, Faculty of Engineering, University of Peradeniya, Sri Lanka}
+}
+
+\resumeSubHeadingListEnd
+
+\end{document}

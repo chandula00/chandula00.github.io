@@ -1,0 +1,14 @@
+@use "./styles/variables" as *;
+
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.main {
+  padding-top: 60px;
+
+  section {
+    scroll-margin-top: 80px;
+  }
+}
