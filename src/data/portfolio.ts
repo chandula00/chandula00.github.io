@@ -1,4 +1,4 @@
-import type { Project, Experience, Education, Skill, Publication } from '../types';
+import type { Project, Experience, Education, Skill, Publication, Achievement } from '../types';
 
 export const personalInfo = {
   name: 'Chandula Adhikari',
@@ -90,6 +90,8 @@ export const experience: Experience[] = [
       'Supporting faculty in course delivery and assessment',
     ],
     technologies: ['Teaching', 'Course Development', 'Lab Instruction'],
+    logo: '/uop_logo.png',
+    url: 'https://people.ce.pdn.ac.lk/staff/temporary-academic-staff/',
   },
   {
     id: 'exp-2',
@@ -103,6 +105,8 @@ export const experience: Experience[] = [
       'Worked with big data processing and cloud-based analytics platforms',
     ],
     technologies: ['Databricks', 'PySpark', 'SQL (Spark SQL & T-SQL)', 'Azure DevOps', 'MLflow', 'Power BI'],
+    logo: '/octave.png',
+    url: 'https://www.octave.lk/',
   },
   {
     id: 'exp-3',
@@ -116,6 +120,8 @@ export const experience: Experience[] = [
       'Support departmental project hosting and version control',
     ],
     technologies: ['Jenkins', 'Jekyll', 'FastAPI', 'GitHub', 'CI/CD'],
+    logo: '/uop_logo.png',
+    url: 'https://github.com/orgs/cepdnaclk/teams/admins-cepdnaclk-github-io',
   },
   {
     id: 'exp-4',
@@ -131,6 +137,8 @@ export const experience: Experience[] = [
       'Provided project mentoring for undergraduate students',
     ],
     technologies: ['ARM Assembly', 'Verilog HDL', 'AVR', 'C/C++', 'Embedded Systems'],
+    logo: '/uop_logo.png',
+    url: 'https://people.ce.pdn.ac.lk/students/e19/008/',
   },
 ];
 
@@ -140,14 +148,18 @@ export const education: Education[] = [
     institution: 'University of Peradeniya',
     degree: 'BSc.Eng (Hons.) in Computer Engineering',
     duration: 'Mar. 2021 - Aug. 2025',
-    description: 'Current GPA: 3.85/4.0. Specializing in computational biology, machine learning, and embedded systems. Research interests include integrating molecular biology with deep learning and computer vision for healthcare diagnostics.',
+    description: 'GPA: 3.85/4.00\nTop 5% out of 486 students',
+    logo: '/uop_logo.png',
+    badges: ['Computer Engineering', 'B.Sc. Engineering (Hons.)', 'First Class'],
   },
   {
     id: 'edu-2',
     institution: 'Dharmaraja College, Kandy',
     degree: 'G.C.E. Advanced Level Examination',
     duration: 'Jan. 2006 - Dec. 2019',
-    description: 'Z-Score: 2.2069 (Ranked 467 out of 19,500+ participants nationwide in Physical Science stream)',
+    description: 'Z-Score: 2.2069\nRanked 467 out of 19,500+ participants nationwide in Physical Science stream',
+    logo: '/dharmaraja.png',
+    badges: ['Physical Science', 'Advanced Level'],
   },
 ];
 
@@ -162,6 +174,47 @@ export const publications: Publication[] = [
       'Proposed a pipelined MPSoC architecture for efficient JPEG encoding using Altera Nios II/e cores on a Cyclone IV FPGA, integrating custom instructions, FIFO-based inter-core communication, and superscalar enhancements to maximize throughput.',
       'Presented at ICAC 2024, Published in IEEE Xplore',
     ],
+    url: 'https://ieeexplore.ieee.org/',
+  },
+];
+
+export const achievements: Achievement[] = [
+  {
+    id: 'ach-1',
+    title: 'MoraXtreme 8.0',
+    organization: 'IEEE Student Branch, University of Moratuwa',
+    date: 'Nov. 2023',
+    description: '4th Place National (Out of 400+ teams) | Team: Five4Five | 12-hour algorithmic programming competition',
+  },
+  {
+    id: 'ach-2',
+    title: 'IEEEXtreme 17.0',
+    organization: 'IEEE',
+    date: 'Nov. 2023',
+    description: 'Global Rank: 374 (Out of 7,091 participants) | Team: Five4Five | 24-hour algorithmic programming competition',
+    url: 'https://ieeextreme.org/ieeextreme-17-0-ranking/',
+  },
+  {
+    id: 'ach-3',
+    title: 'ACES Coders v10.0',
+    organization: 'Association of Computer Engineering Students (ACES), University of Peradeniya',
+    date: 'Oct. 2023',
+    description: '12th Place National (Out of 350+ participants) | Team: Five4Five | 12-hour algorithmic programming competition',
+  },
+  {
+    id: 'ach-4',
+    title: 'ACES PreCoders v10.0',
+    organization: 'Association of Computer Engineering Students (ACES), University of Peradeniya',
+    date: 'Sep. 2023',
+    description: '2nd Place (Out of 50+ teams) | Team: Five4Five | 6-hour algorithmic programming competition',
+  },
+  {
+    id: 'ach-5',
+    title: 'NBQSA National ICT Awards',
+    organization: 'National Best Quality Software Awards',
+    date: 'Aug. 2023',
+    description: 'Participation with Merit | IntelliSwitcher : Intelligent Domestic Energy Optimizing System',
+    url: 'https://github.com/IntelliSwitcher',
   },
 ];
 

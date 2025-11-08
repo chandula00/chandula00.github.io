@@ -5,9 +5,17 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: spacing(xl);
     margin-top: spacing(xl);
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -35,6 +43,28 @@
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 24px var(--shadow);
+  }
+
+  &__icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: spacing(md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto spacing(md);
+    background: var(--bg);
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    transition: all $transition-normal;
+
+    .card:hover & {
+      transform: scale(1.1) rotate(5deg);
+      border-color: var(--accent);
+      background: rgba(10, 132, 255, 0.05);
+    }
   }
 
   &__header {

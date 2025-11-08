@@ -10,6 +10,7 @@ import {
   education,
   skills,
   publications,
+  achievements,
 } from "./data/portfolio";
 import styles from "./App.module.scss";
 import headerStyles from "./components/HeaderTerminal.module.scss";
@@ -146,6 +147,14 @@ function App() {
                     </li>
                     <li>
                       <button
+                        onClick={() => scrollToSection("achievements")}
+                        className={headerStyles.header__link}
+                      >
+                        Achievements
+                      </button>
+                    </li>
+                    <li>
+                      <button
                         onClick={() => scrollToSection("contact")}
                         className={headerStyles.header__link}
                       >
@@ -267,21 +276,70 @@ function App() {
                       className={sectionStyles.experience__item}
                     >
                       <div className={sectionStyles.experience__card}>
-                        <div className={sectionStyles.experience__header}>
-                          <h3 className={sectionStyles.experience__position}>
-                            {edu.degree}
-                          </h3>
-                          <div className={sectionStyles.experience__company}>
-                            {edu.institution}
-                          </div>
-                          <div className={sectionStyles.experience__duration}>
-                            {edu.duration}
+                        <div className={sectionStyles.experience__logo_header}>
+                          {edu.logo && (
+                            <img
+                              src={edu.logo}
+                              alt={edu.institution}
+                              className={sectionStyles.experience__logo}
+                            />
+                          )}
+                          <div className={sectionStyles.experience__header}>
+                            <h3 className={sectionStyles.experience__position}>
+                              {edu.degree}
+                            </h3>
+                            <div className={sectionStyles.experience__company}>
+                              {edu.institution}
+                            </div>
+                            <div className={sectionStyles.experience__duration}>
+                              {edu.duration}
+                            </div>
                           </div>
                         </div>
+                        {edu.badges && (
+                          <div
+                            style={{
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "0.5rem",
+                              marginTop: "1rem",
+                              marginBottom: "1rem",
+                            }}
+                          >
+                            {edu.badges.map((badge, idx) => (
+                              <span
+                                key={idx}
+                                style={{
+                                  padding: "0.375rem 0.875rem",
+                                  background: "rgba(10, 132, 255, 0.1)",
+                                  border: "1px solid var(--accent)",
+                                  borderRadius: "4px",
+                                  color: "var(--accent)",
+                                  fontSize: "0.875rem",
+                                  fontWeight: "500",
+                                  letterSpacing: "0.5px",
+                                }}
+                              >
+                                {badge}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                         {edu.description && (
-                          <ul className={sectionStyles.experience__description}>
-                            <li>{edu.description}</li>
-                          </ul>
+                          <div
+                            style={{
+                              color: "var(--text)",
+                              lineHeight: "1.8",
+                              marginTop: "1rem",
+                              whiteSpace: "pre-line",
+                              padding: "1rem",
+                              background: "var(--bg)",
+                              borderRadius: "6px",
+                              borderLeft: "3px solid var(--accent)",
+                            }}
+                          >
+                            {edu.description}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -307,10 +365,43 @@ function App() {
                       key={pub.id}
                       className={sectionStyles.experience__item}
                     >
-                      <div className={sectionStyles.experience__card}>
+                      <div
+                        className={sectionStyles.experience__card}
+                        style={{
+                          cursor: pub.url ? "pointer" : "default",
+                          transition: "all 0.3s ease",
+                        }}
+                        onClick={() =>
+                          pub.url && window.open(pub.url, "_blank")
+                        }
+                        onMouseEnter={(e) => {
+                          if (pub.url) {
+                            e.currentTarget.style.transform = "translateX(8px)";
+                            e.currentTarget.style.borderLeftColor =
+                              "var(--accent)";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (pub.url) {
+                            e.currentTarget.style.transform = "translateX(0)";
+                            e.currentTarget.style.borderLeftColor = "";
+                          }
+                        }}
+                      >
                         <div className={sectionStyles.experience__header}>
                           <h3 className={sectionStyles.experience__position}>
                             {pub.title}
+                            {pub.url && (
+                              <span
+                                style={{
+                                  marginLeft: "0.5rem",
+                                  fontSize: "0.9rem",
+                                  color: "var(--accent)",
+                                }}
+                              >
+                                🔗
+                              </span>
+                            )}
                           </h3>
                           <div className={sectionStyles.experience__company}>
                             {pub.authors}
@@ -473,6 +564,157 @@ function App() {
                       </ul>
                     </div>
                   ))}
+                </div>
+              </section>
+
+              {/* Achievements Section */}
+              <section
+                id="achievements"
+                className={`${sectionStyles.section} ${skillsStyles.skills}`}
+              >
+                <div className={sectionStyles.section__header}>
+                  <h2 className={sectionStyles.section__title}>
+                    Achievements & Competitions
+                  </h2>
+                  <p className={sectionStyles.section__subtitle}>
+                    Recognition and competitive programming accomplishments
+                  </p>
+                </div>
+
+                <div className={projectStyles.projects__grid}>
+                  {achievements.map((achievement) => {
+                    // Parse achievement description for badges
+                    const descParts =
+                      achievement.description?.split(" | ") || [];
+                    const rankInfo = descParts[0]; // e.g., "4th Place National (Out of 400+ teams)"
+                    const teamInfo = descParts.length > 1 ? descParts[1] : null; // e.g., "Team: Five4Five"
+                    const eventInfo =
+                      descParts.length > 2
+                        ? descParts[2]
+                        : descParts[descParts.length - 1]; // Competition type
+
+                    return (
+                      <div
+                        key={achievement.id}
+                        className={projectStyles.card}
+                        style={{
+                          cursor: achievement.url ? "pointer" : "default",
+                        }}
+                        onClick={() =>
+                          achievement.url &&
+                          window.open(achievement.url, "_blank")
+                        }
+                      >
+                        <div className={projectStyles.card__icon}>
+                          {(achievement.id === "ach-1" ||
+                            achievement.id === "ach-2" ||
+                            achievement.id === "ach-3" ||
+                            achievement.id === "ach-4") && (
+                            <div
+                              style={{
+                                fontSize: "2rem",
+                                fontFamily: "monospace",
+                                color: "var(--accent)",
+                              }}
+                            >
+                              {"</>"}
+                            </div>
+                          )}
+                          {achievement.id === "ach-5" && "💡"}
+                          {achievement.id === "ach-6" && "🏆"}
+                        </div>
+                        <div className={projectStyles.card__header}>
+                          <h3 className={projectStyles.card__title}>
+                            {achievement.title}
+                            {achievement.url && (
+                              <span
+                                style={{
+                                  marginLeft: "0.5rem",
+                                  fontSize: "0.9rem",
+                                  color: "var(--accent)",
+                                }}
+                              >
+                                🔗
+                              </span>
+                            )}
+                          </h3>
+                          <span className={projectStyles.card__category}>
+                            {achievement.date}
+                          </span>
+                        </div>
+
+                        {/* Organization */}
+                        <div
+                          style={{
+                            marginBottom: "1rem",
+                            fontSize: "0.9rem",
+                            color: "var(--text-secondary)",
+                            fontStyle: "italic",
+                          }}
+                        >
+                          Organized by {achievement.organization}
+                        </div>
+
+                        {/* Achievement Details */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "0.5rem",
+                          }}
+                        >
+                          {rankInfo && (
+                            <div
+                              style={{
+                                padding: "0.625rem 1rem",
+                                background: "var(--bg)",
+                                border: "1px solid var(--accent)",
+                                borderRadius: "4px",
+                                borderLeft: "3px solid var(--accent)",
+                                fontSize: "0.9rem",
+                                color: "var(--text)",
+                                fontWeight: "600",
+                              }}
+                            >
+                              {rankInfo}
+                            </div>
+                          )}
+
+                          {teamInfo && teamInfo.includes("Team:") && (
+                            <div
+                              style={{
+                                padding: "0.5rem 1rem",
+                                background: "rgba(10, 132, 255, 0.05)",
+                                border: "1px solid var(--accent)",
+                                borderRadius: "4px",
+                                fontSize: "0.85rem",
+                                color: "var(--text-secondary)",
+                                fontWeight: "500",
+                              }}
+                            >
+                              {teamInfo}
+                            </div>
+                          )}
+
+                          {eventInfo && (
+                            <div
+                              style={{
+                                padding: "0.5rem 1rem",
+                                background: "rgba(10, 132, 255, 0.05)",
+                                border: "1px solid var(--accent)",
+                                borderRadius: "4px",
+                                fontSize: "0.85rem",
+                                color: "var(--text-secondary)",
+                                fontWeight: "500",
+                              }}
+                            >
+                              {eventInfo}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
 

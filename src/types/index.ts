@@ -16,6 +16,8 @@ export interface Experience {
   duration: string;
   description: string[];
   technologies?: string[];
+  logo?: string;
+  url?: string;
 }
 
 export interface Education {
@@ -24,6 +26,17 @@ export interface Education {
   degree: string;
   duration: string;
   description?: string;
+  logo?: string;
+  badges?: string[];
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  organization: string;
+  date: string;
+  description?: string;
+  url?: string;
 }
 
 export interface Skill {
