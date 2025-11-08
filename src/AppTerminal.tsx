@@ -793,7 +793,7 @@ function App() {
                         Resume
                       </div>
                       <div className={skillsStyles.contact__method_value}>
-                        Download PDF
+                        Download Resume
                       </div>
                     </a>
 

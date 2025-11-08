@@ -8,7 +8,7 @@ export const personalInfo = {
   phone: '+94 711530046',
   github: 'https://github.com/chandula00',
   linkedin: 'https://www.linkedin.com/in/janith-chandula-adhikari-5543a5223',
-  bio: 'Research student specializing in computational biology, integrating molecular biology with deep learning, data science and computer vision to develop adaptive Human-AI collaborative systems for healthcare diagnostics and molecular-level analysis. Aspiring PhD candidate.',
+  bio: 'Bridging computational intelligence and biological systems to create explainable AI solutions for healthcare. Passionate about transforming complex data into actionable insights through machine learning, computer vision, and human-centered design.',
   image: '/profile-image.jpg',
   resumeUrl: 'https://chandula00.github.io/Documents/Resume_Chandula.pdf',
   researchInterests: [
