@@ -21,11 +21,13 @@ import terminalStyles from "./components/TerminalWindow.module.scss";
 function App() {
   const { theme, toggleTheme } = useTheme();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false); // Close menu after navigation
     }
   };
 
@@ -74,7 +76,25 @@ function App() {
                 <div className={headerStyles.header__logo}>
                   {personalInfo.name.split(" ")[0].toLowerCase()}
                 </div>
-                <nav className={headerStyles.header__nav}>
+
+                {/* Hamburger Menu Button */}
+                <button
+                  className={`${headerStyles.hamburger} ${
+                    isMobileMenuOpen ? headerStyles.hamburger__active : ""
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  aria-label="Toggle menu"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+
+                <nav
+                  className={`${headerStyles.header__nav} ${
+                    isMobileMenuOpen ? headerStyles.header__nav__open : ""
+                  }`}
+                >
                   <ul className={headerStyles.header__links}>
                     <li>
                       <button
@@ -607,29 +627,14 @@ function App() {
               {/* Footer */}
               <footer className={skillsStyles.footer}>
                 <div className={skillsStyles.footer__content}>
-                  <p className={skillsStyles.footer__text}>
-                    Built with React, TypeScript & SCSS
-                  </p>
-                  <div className={skillsStyles.footer__links}>
-                    <a
-                      href={personalInfo.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={skillsStyles.footer__link}
-                    >
-                      GitHub
-                    </a>
-                    <a
-                      href={personalInfo.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={skillsStyles.footer__link}
-                    >
-                      LinkedIn
-                    </a>
-                  </div>
                   <p className={skillsStyles.footer__copyright}>
                     2025 {personalInfo.name}. All rights reserved.
+                  </p>
+                  <p
+                    className={skillsStyles.footer__text}
+                    style={{ marginTop: "0.5rem", fontSize: "0.875rem" }}
+                  >
+                    Last updated: 8th November 2025
                   </p>
                 </div>
               </footer>

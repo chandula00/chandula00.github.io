@@ -405,8 +405,11 @@ function App() {
             borderTop: "1px solid var(--border)",
           }}
         >
-          <p style={{ color: "var(--text-secondary)" }}>
+          <p style={{ color: "var(--text-secondary)", marginBottom: "0.5rem" }}>
             © 2025 {personalInfo.name}. Built with React, TypeScript & SCSS
+          </p>
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
+            Last updated: 8th November 2025
           </p>
         </footer>
       </main>
