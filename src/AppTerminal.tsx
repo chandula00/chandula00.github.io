@@ -2,6 +2,7 @@ import { Hero } from "./components/Hero";
 import { ExperienceTree } from "./components/ExperienceTree";
 import { ContactModal } from "./components/ContactModal";
 import { useTheme } from "./hooks/useTheme";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import { useState } from "react";
 import {
   personalInfo,
@@ -23,6 +24,9 @@ function App() {
   const { theme, toggleTheme } = useTheme();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Initialize scroll animations
+  useScrollAnimation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -173,9 +177,11 @@ function App() {
               {/* Research Interests Section */}
               <section
                 id="research"
-                className={`${sectionStyles.section} ${sectionStyles.about}`}
+                className={`${sectionStyles.section} ${sectionStyles.about} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>
                     Research Interests
                   </h2>
@@ -185,7 +191,9 @@ function App() {
                 </div>
 
                 <div className={sectionStyles.about__grid}>
-                  <div className={sectionStyles.about__text}>
+                  <div
+                    className={`${sectionStyles.about__text} scroll-animate scroll-animate-delay-1`}
+                  >
                     <p style={{ lineHeight: "1.8", fontSize: "1.05rem" }}>
                       My primary research interest is in{" "}
                       <strong style={{ color: "var(--accent-cyan)" }}>
@@ -202,6 +210,7 @@ function App() {
                   </div>
 
                   <div
+                    className="scroll-animate scroll-animate-delay-2"
                     style={{
                       display: "flex",
                       flexDirection: "column",
@@ -260,9 +269,11 @@ function App() {
               {/* Education Section */}
               <section
                 id="education"
-                className={`${sectionStyles.section} ${sectionStyles.experience}`}
+                className={`${sectionStyles.section} ${sectionStyles.experience} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>Education</h2>
                   <p className={sectionStyles.section__subtitle}>
                     Academic background and qualifications
@@ -270,10 +281,12 @@ function App() {
                 </div>
 
                 <div className={sectionStyles.experience__timeline}>
-                  {education.map((edu) => (
+                  {education.map((edu, index) => (
                     <div
                       key={edu.id}
-                      className={sectionStyles.experience__item}
+                      className={`${
+                        sectionStyles.experience__item
+                      } scroll-animate-left scroll-animate-delay-${index + 1}`}
                     >
                       <div className={sectionStyles.experience__card}>
                         <div className={sectionStyles.experience__logo_header}>
@@ -350,9 +363,11 @@ function App() {
               {/* Publications Section */}
               <section
                 id="publications"
-                className={`${sectionStyles.section} ${sectionStyles.experience}`}
+                className={`${sectionStyles.section} ${sectionStyles.experience} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>Publications</h2>
                   <p className={sectionStyles.section__subtitle}>
                     Research contributions and academic publications
@@ -360,10 +375,12 @@ function App() {
                 </div>
 
                 <div className={sectionStyles.experience__timeline}>
-                  {publications.map((pub) => (
+                  {publications.map((pub, index) => (
                     <div
                       key={pub.id}
-                      className={sectionStyles.experience__item}
+                      className={`${
+                        sectionStyles.experience__item
+                      } scroll-animate-right scroll-animate-delay-${index + 1}`}
                     >
                       <div
                         className={sectionStyles.experience__card}
@@ -424,9 +441,11 @@ function App() {
               {/* Experience Section with Tree */}
               <section
                 id="experience"
-                className={`${sectionStyles.section} ${sectionStyles.experience}`}
+                className={`${sectionStyles.section} ${sectionStyles.experience} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>
                     Professional Experience
                   </h2>
@@ -441,9 +460,11 @@ function App() {
               {/* Projects Section */}
               <section
                 id="projects"
-                className={`${sectionStyles.section} ${projectStyles.projects}`}
+                className={`${sectionStyles.section} ${projectStyles.projects} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>
                     Selected Projects
                   </h2>
@@ -453,8 +474,15 @@ function App() {
                 </div>
 
                 <div className={projectStyles.projects__grid}>
-                  {projects.map((project) => (
-                    <div key={project.id} className={projectStyles.card}>
+                  {projects.map((project, index) => (
+                    <div
+                      key={project.id}
+                      className={`${
+                        projectStyles.card
+                      } scroll-animate-scale scroll-animate-delay-${
+                        (index % 3) + 1
+                      }`}
+                    >
                       <div className={projectStyles.card__header}>
                         <h3 className={projectStyles.card__title}>
                           {project.title}
@@ -534,9 +562,11 @@ function App() {
               {/* Skills Section */}
               <section
                 id="skills"
-                className={`${sectionStyles.section} ${skillsStyles.skills}`}
+                className={`${sectionStyles.section} ${skillsStyles.skills} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>
                     Technical Skills
                   </h2>
@@ -549,7 +579,11 @@ function App() {
                   {skills.map((skillCategory, idx) => (
                     <div
                       key={idx}
-                      className={skillsStyles.skills__category}
+                      className={`${
+                        skillsStyles.skills__category
+                      } scroll-animate-left scroll-animate-delay-${
+                        (idx % 3) + 1
+                      }`}
                       data-category={skillCategory.category}
                     >
                       <h3 className={skillsStyles.skills__category_title}>
@@ -570,9 +604,11 @@ function App() {
               {/* Achievements Section */}
               <section
                 id="achievements"
-                className={`${sectionStyles.section} ${skillsStyles.skills}`}
+                className={`${sectionStyles.section} ${skillsStyles.skills} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>
                     Achievements & Competitions
                   </h2>
@@ -582,7 +618,7 @@ function App() {
                 </div>
 
                 <div className={projectStyles.projects__grid}>
-                  {achievements.map((achievement) => {
+                  {achievements.map((achievement, index) => {
                     // Parse achievement description for badges
                     const descParts =
                       achievement.description?.split(" | ") || [];
@@ -596,7 +632,11 @@ function App() {
                     return (
                       <div
                         key={achievement.id}
-                        className={projectStyles.card}
+                        className={`${
+                          projectStyles.card
+                        } scroll-animate-scale scroll-animate-delay-${
+                          (index % 3) + 1
+                        }`}
                         style={{
                           cursor: achievement.url ? "pointer" : "default",
                         }}
@@ -721,9 +761,11 @@ function App() {
               {/* Contact Section */}
               <section
                 id="contact"
-                className={`${sectionStyles.section} ${skillsStyles.contact}`}
+                className={`${sectionStyles.section} ${skillsStyles.contact} scroll-animate`}
               >
-                <div className={sectionStyles.section__header}>
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
                   <h2 className={sectionStyles.section__title}>Get In Touch</h2>
                   <p className={sectionStyles.section__subtitle}>
                     Let's collaborate on research or projects
