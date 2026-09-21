@@ -1,0 +1,210 @@
+@use "../styles/variables" as *;
+
+.news {
+  font-family: "Courier New", "Consolas", monospace;
+
+  &__feed {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: spacing(md);
+    padding-left: spacing(xl);
+
+    // The vertical terminal rail
+    &::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        var(--accent),
+        var(--accent-purple),
+        transparent
+      );
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: spacing(lg);
+    }
+  }
+
+  &__item {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: radius(md);
+    padding: spacing(lg);
+    transition: all $transition-normal;
+
+    // The node on the rail
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(-#{spacing(xl)} + 2px);
+      top: spacing(lg) + 0.35rem;
+      width: 10px;
+      height: 10px;
+      border-radius: radius(full);
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      transition: all $transition-normal;
+
+      @media (max-width: 768px) {
+        left: calc(-#{spacing(lg)} + 2px);
+      }
+    }
+
+    &:hover {
+      border-left-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: 0 4px 16px var(--shadow);
+
+      &::before {
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.15);
+      }
+    }
+
+    &--highlight {
+      border-left-color: var(--accent-purple);
+
+      &::before {
+        border-color: var(--accent-purple);
+      }
+
+      &:hover {
+        border-left-color: var(--accent-purple);
+
+        &::before {
+          background: var(--accent-purple);
+          box-shadow: 0 0 0 4px rgba(191, 90, 242, 0.15);
+        }
+      }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: spacing(sm);
+    margin-bottom: spacing(sm);
+  }
+
+  &__date {
+    font-size: font-size(sm);
+    font-weight: 700;
+    color: var(--accent-green);
+    letter-spacing: 0.5px;
+
+    &::before {
+      content: "[";
+      opacity: 0.6;
+    }
+
+    &::after {
+      content: "]";
+      opacity: 0.6;
+    }
+  }
+
+  &__category {
+    font-size: font-size(xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--accent);
+    border-radius: radius(sm);
+    color: var(--accent);
+    background: rgba(10, 132, 255, 0.08);
+  }
+
+  &__new {
+    font-size: font-size(xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.15rem 0.6rem;
+    border-radius: radius(sm);
+    color: var(--accent-purple);
+    border: 1px solid var(--accent-purple);
+    background: rgba(191, 90, 242, 0.1);
+  }
+
+  &__title {
+    font-size: font-size(lg);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0 0 spacing(sm);
+
+    @media (max-width: 768px) {
+      font-size: font-size(base);
+    }
+  }
+
+  &__description {
+    font-size: font-size(sm);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: spacing(xs);
+    margin-top: spacing(md);
+    font-family: inherit;
+    font-size: font-size(sm);
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &::before {
+      content: "$";
+      opacity: 0.6;
+    }
+
+    &:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+  }
+
+  &__prompt {
+    margin-top: spacing(lg);
+    padding-left: spacing(xl);
+    font-size: font-size(sm);
+    color: var(--text-secondary);
+
+    @media (max-width: 768px) {
+      padding-left: spacing(lg);
+    }
+  }
+
+  &__cursor {
+    display: inline-block;
+    color: var(--accent);
+    animation: news-blink 1.1s step-end infinite;
+  }
+}
+
+@keyframes news-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

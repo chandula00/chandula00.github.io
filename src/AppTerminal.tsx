@@ -1,6 +1,7 @@
 import { Hero } from "./components/Hero";
 import { ExperienceTree } from "./components/ExperienceTree";
 import { ContactModal } from "./components/ContactModal";
+import { NewsFeed } from "./components/News";
 import { useTheme } from "./hooks/useTheme";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import { useState } from "react";
@@ -12,6 +13,8 @@ import {
   skills,
   publications,
   achievements,
+  certificates,
+  news,
 } from "./data/portfolio";
 import styles from "./App.module.scss";
 import headerStyles from "./components/HeaderTerminal.module.scss";
@@ -19,6 +22,20 @@ import sectionStyles from "./components/SectionTerminal.module.scss";
 import projectStyles from "./components/ProjectCardTerminal.module.scss";
 import skillsStyles from "./components/SkillsContactTerminal.module.scss";
 import terminalStyles from "./components/TerminalWindow.module.scss";
+
+// Renders **bold** spans from the data file without pulling in a markdown library
+const renderEmphasis = (text: string) =>
+  text
+    .split(/\*\*(.+?)\*\*/g)
+    .map((part, i) =>
+      i % 2 === 1 ? (
+        <strong key={i} style={{ color: "var(--text)" }}>
+          {part}
+        </strong>
+      ) : (
+        part
+      )
+    );
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -111,6 +128,14 @@ function App() {
                     </li>
                     <li>
                       <button
+                        onClick={() => scrollToSection("news")}
+                        className={headerStyles.header__link}
+                      >
+                        News
+                      </button>
+                    </li>
+                    <li>
+                      <button
                         onClick={() => scrollToSection("education")}
                         className={headerStyles.header__link}
                       >
@@ -194,19 +219,18 @@ function App() {
                   <div
                     className={`${sectionStyles.about__text} scroll-animate scroll-animate-delay-1`}
                   >
-                    <p style={{ lineHeight: "1.8", fontSize: "1.05rem" }}>
-                      My primary research interest is in{" "}
-                      <strong style={{ color: "var(--accent-cyan)" }}>
-                        computational biology
-                      </strong>
-                      , focusing on integrating{" "}
-                      <strong>molecular biology</strong> with{" "}
-                      <strong>deep learning</strong>,{" "}
-                      <strong>data science</strong>, and{" "}
-                      <strong>computer vision</strong> to develop adaptive
-                      Human-AI collaborative systems for healthcare diagnostics
-                      and molecular-level analysis.
-                    </p>
+                    {personalInfo.researchStatement.map((paragraph, idx) => (
+                      <p
+                        key={idx}
+                        style={{
+                          lineHeight: "1.8",
+                          fontSize: "1.05rem",
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        {renderEmphasis(paragraph)}
+                      </p>
+                    ))}
                   </div>
 
                   <div
@@ -264,6 +288,23 @@ function App() {
                     </div>
                   </div>
                 </div>
+              </section>
+
+              {/* News Section */}
+              <section
+                id="news"
+                className={`${sectionStyles.section} scroll-animate`}
+              >
+                <div
+                  className={`${sectionStyles.section__header} scroll-animate`}
+                >
+                  <h2 className={sectionStyles.section__title}>News</h2>
+                  <p className={sectionStyles.section__subtitle}>
+                    Recent updates on research, publications and positions
+                  </p>
+                </div>
+
+                <NewsFeed items={news} />
               </section>
 
               {/* Education Section */}
@@ -427,11 +468,72 @@ function App() {
                             {pub.venue} - {pub.year}
                           </div>
                         </div>
+
+                        {(pub.award || pub.status) && (
+                          <div
+                            style={{
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "0.5rem",
+                              marginTop: "0.75rem",
+                            }}
+                          >
+                            {pub.award && (
+                              <span
+                                style={{
+                                  padding: "0.375rem 0.875rem",
+                                  background: "rgba(191, 90, 242, 0.1)",
+                                  border: "1px solid var(--accent-purple)",
+                                  borderRadius: "4px",
+                                  color: "var(--accent-purple)",
+                                  fontSize: "0.85rem",
+                                  fontWeight: "600",
+                                }}
+                              >
+                                🏆 {pub.award}
+                              </span>
+                            )}
+                            {pub.status && (
+                              <span
+                                style={{
+                                  padding: "0.375rem 0.875rem",
+                                  background: "rgba(10, 132, 255, 0.08)",
+                                  border: "1px dashed var(--accent)",
+                                  borderRadius: "4px",
+                                  color: "var(--accent)",
+                                  fontSize: "0.85rem",
+                                  fontWeight: "600",
+                                }}
+                              >
+                                {pub.status}
+                              </span>
+                            )}
+                          </div>
+                        )}
+
                         <ul className={sectionStyles.experience__description}>
                           {pub.description.map((desc, idx) => (
                             <li key={idx}>{desc}</li>
                           ))}
                         </ul>
+
+                        {pub.codeUrl && (
+                          <a
+                            href={pub.codeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            style={{
+                              display: "inline-block",
+                              color: "var(--accent)",
+                              fontSize: "0.9rem",
+                              fontWeight: 600,
+                              textDecoration: "none",
+                            }}
+                          >
+                            {"</> Code"}
+                          </a>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -610,10 +712,10 @@ function App() {
                   className={`${sectionStyles.section__header} scroll-animate`}
                 >
                   <h2 className={sectionStyles.section__title}>
-                    Achievements & Competitions
+                    Achievements & Certifications
                   </h2>
                   <p className={sectionStyles.section__subtitle}>
-                    Recognition and competitive programming accomplishments
+                    Competitive programming results and formal training
                   </p>
                 </div>
 
@@ -756,6 +858,73 @@ function App() {
                     );
                   })}
                 </div>
+
+                {/* Certificates */}
+                <div style={{ marginTop: "3rem" }}>
+                  <h3
+                    className="scroll-animate"
+                    style={{
+                      fontSize: "1.25rem",
+                      color: "var(--accent-cyan)",
+                      marginBottom: "1.5rem",
+                      fontWeight: 600,
+                      letterSpacing: "1px",
+                    }}
+                  >
+                    $ ls certificates/
+                  </h3>
+
+                  <div className={sectionStyles.experience__timeline}>
+                    {certificates.map((cert, index) => (
+                      <div
+                        key={cert.id}
+                        className={`${
+                          sectionStyles.experience__item
+                        } scroll-animate-left scroll-animate-delay-${
+                          (index % 3) + 1
+                        }`}
+                      >
+                        <div
+                          className={sectionStyles.experience__card}
+                          style={{ cursor: cert.url ? "pointer" : "default" }}
+                          onClick={() =>
+                            cert.url && window.open(cert.url, "_blank")
+                          }
+                        >
+                          <div className={sectionStyles.experience__header}>
+                            <h3 className={sectionStyles.experience__position}>
+                              {cert.title}
+                              {cert.url && (
+                                <span
+                                  style={{
+                                    marginLeft: "0.5rem",
+                                    fontSize: "0.9rem",
+                                    color: "var(--accent)",
+                                  }}
+                                >
+                                  🔗
+                                </span>
+                              )}
+                            </h3>
+                            <div className={sectionStyles.experience__company}>
+                              {cert.issuer}
+                            </div>
+                            <div className={sectionStyles.experience__duration}>
+                              {cert.date}
+                            </div>
+                          </div>
+                          {cert.description && (
+                            <ul
+                              className={sectionStyles.experience__description}
+                            >
+                              <li>{cert.description}</li>
+                            </ul>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </section>
 
               {/* Contact Section */}
@@ -774,9 +943,10 @@ function App() {
 
                 <div className={skillsStyles.contact__container}>
                   <p className={skillsStyles.contact__text}>
-                    I'm currently pursuing research opportunities and interested
-                    in PhD programs in computational biology. Feel free to reach
-                    out for collaboration or discussion!
+                    I'm currently a Research Assistant at MARC and am applying
+                    to PhD programs in computational biology and machine
+                    learning for genomics. Feel free to reach out for
+                    collaboration or discussion!
                   </p>
 
                   <div className={skillsStyles.contact__methods}>
@@ -912,13 +1082,13 @@ function App() {
               <footer className={skillsStyles.footer}>
                 <div className={skillsStyles.footer__content}>
                   <p className={skillsStyles.footer__copyright}>
-                    2025 {personalInfo.name}. All rights reserved.
+                    2026 {personalInfo.name}. All rights reserved.
                   </p>
                   <p
                     className={skillsStyles.footer__text}
                     style={{ marginTop: "0.5rem", fontSize: "0.875rem" }}
                   >
-                    Last updated: 8th November 2025
+                    Last updated: 21st September 2026
                   </p>
                 </div>
               </footer>

@@ -52,6 +52,29 @@ export interface Publication {
   year: string;
   description: string[];
   url?: string;
+  codeUrl?: string;
+  status?: string;
+  award?: string;
+}
+
+export interface NewsItem {
+  id: string;
+  date: string;
+  category: string;
+  title: string;
+  description?: string;
+  url?: string;
+  urlLabel?: string;
+  highlight?: boolean;
+}
+
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  description?: string;
+  url?: string;
 }
 
 export type Theme = 'light' | 'dark';
