@@ -29,12 +29,23 @@ export const personalInfo = {
 
 export const news: NewsItem[] = [
   {
+    id: 'news-0',
+    date: 'Sep. 2026',
+    category: 'Publication',
+    title: 'TARVI paper published at MERCon 2026 (IEEE Xplore)',
+    description:
+      '"TARVI: Transcription-Factor Aided RNA Velocity Inference with Supervised Latent Time and Velocity-Pseudotime Blending" — pp. 922–927.',
+    url: 'https://doi.org/10.1109/MERCon71835.2026.11691489',
+    urlLabel: 'DOI',
+    highlight: true,
+  },
+  {
     id: 'news-1',
-    date: '2026',
+    date: 'Aug. 2026',
     category: 'Award',
     title: 'TARVI wins Best Paper Award at MERCon 2026 (IEEE)',
     description:
-      'Best Paper in the Biomedical Engineering & Instrumentation track for "TARVI: Transcription-Factor Aided RNA Velocity Inference with Supervised Latent Time".',
+      'Best Paper in the Biomedical Engineering & Instrumentation track for "TARVI: Transcription-Factor Aided RNA Velocity Inference with Supervised Latent Time and Velocity-Pseudotime Blending".',
     url: 'https://chandula00.github.io/TARVI/',
     urlLabel: 'Project page',
     highlight: true,
@@ -269,9 +280,9 @@ export const education: Education[] = [
 export const publications: Publication[] = [
   {
     id: 'pub-1',
-    title: 'TARVI: Transcription-Factor Aided RNA Velocity Inference with Supervised Latent Time',
+    title: 'TARVI: Transcription-Factor Aided RNA Velocity Inference with Supervised Latent Time and Velocity-Pseudotime Blending',
     authors: 'R.A.J.C. Adhikari, S. Dassanayake, D. Herath',
-    venue: 'MERCon 2026 (IEEE)',
+    venue: 'MERCon 2026 — IEEE Xplore, pp. 922–927',
     year: '2026',
     award: 'Best Paper Award — Biomedical Engineering & Instrumentation',
     description: [
@@ -279,8 +290,9 @@ export const publications: Publication[] = [
       'Introduced a supervised latent-time head trained with ODE-residual, self-distillation and graph-Laplacian smoothness losses, plus post-hoc velocity–pseudotime blending that grounds local velocity vectors in global trajectory topology.',
       'Improved pseudotime calibration by 126% over VeloVI (Spearman 0.747 vs. 0.331) across 5 single-cell datasets (pancreas, bone marrow, forebrain, chromaffin, scEU organoid), while matching the strongest of 4 baselines on directional metrics.',
     ],
-    url: 'https://chandula00.github.io/TARVI/',
+    url: 'https://doi.org/10.1109/MERCon71835.2026.11691489',
     codeUrl: 'https://github.com/chandula00/TARVI',
+    webUrl: 'https://chandula00.github.io/TARVI/',
   },
   {
     id: 'pub-2',

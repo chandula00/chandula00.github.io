@@ -53,6 +53,7 @@ export interface Publication {
   description: string[];
   url?: string;
   codeUrl?: string;
+  webUrl?: string;
   status?: string;
   award?: string;
 }

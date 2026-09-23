@@ -517,22 +517,49 @@ function App() {
                           ))}
                         </ul>
 
-                        {pub.codeUrl && (
-                          <a
-                            href={pub.codeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
+                        {(pub.codeUrl || pub.webUrl) && (
+                          <div
                             style={{
-                              display: "inline-block",
-                              color: "var(--accent)",
-                              fontSize: "0.9rem",
-                              fontWeight: 600,
-                              textDecoration: "none",
+                              display: "flex",
+                              flexWrap: "wrap",
+                              gap: "1.25rem",
                             }}
                           >
-                            {"</> Code"}
-                          </a>
+                            {pub.codeUrl && (
+                              <a
+                                href={pub.codeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                style={{
+                                  display: "inline-block",
+                                  color: "var(--accent)",
+                                  fontSize: "0.9rem",
+                                  fontWeight: 600,
+                                  textDecoration: "none",
+                                }}
+                              >
+                                {"</> Code"}
+                              </a>
+                            )}
+                            {pub.webUrl && (
+                              <a
+                                href={pub.webUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                style={{
+                                  display: "inline-block",
+                                  color: "var(--accent)",
+                                  fontSize: "0.9rem",
+                                  fontWeight: 600,
+                                  textDecoration: "none",
+                                }}
+                              >
+                                {"↗ Project page"}
+                              </a>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>
