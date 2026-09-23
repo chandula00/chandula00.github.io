@@ -52,20 +52,28 @@ export const news: NewsItem[] = [
   },
   {
     id: 'news-2',
+    date: 'July 2026',
+    category: 'Submission',
+    title: 'Discrete diffusion paper for scRNA-seq imputation submitted to AAAI 2027',
+    description:
+      '"Dropout Is the Absorbing State: Discrete Diffusion for Single-Cell Gene Expression Imputation" — best rank correlation and lowest log-scale RMSE against 9 baselines on every dataset tested.',
+    highlight: true,
+  },
+  {
+    id: 'news-3',
+    date: 'July 2026',
+    category: 'Submission',
+    title: 'RCT-PEARL root canal radiograph dataset submitted to Nature Scientific Data',
+    description:
+      '"RCT-PEARL: Annotated Periapical Radiograph Dataset for AI-Based Quality Assessment of Root Canal Treatment" — 1,311 anonymized periapical radiographs covering 2,241 root filling instances, with tooth, filling and apex annotations and per-filling quality labels.',
+  },
+  {
+    id: 'news-3b',
     date: '2026',
     category: 'Certification',
     title: 'Completed a 100-hour Certificate Course in Molecular Biology & Biotechnology',
     description:
       'Wet-lab and bioinformatics training at the Agricultural Biotechnology Centre, University of Peradeniya — gene regulation, NGS and Sanger sequencing, recombinant DNA cloning, Nanopore transcriptomics and molecular phylogenetics.',
-  },
-  {
-    id: 'news-3',
-    date: '2026',
-    category: 'Preprint',
-    title: 'Discrete diffusion paper for scRNA-seq imputation under review at AAAI 2027',
-    description:
-      '"Dropout Is the Absorbing State: Discrete Diffusion for Single-Cell Gene Expression Imputation" — best rank correlation and lowest log-scale RMSE against 9 baselines on every dataset tested.',
-    highlight: true,
   },
   {
     id: 'news-4',
@@ -298,13 +306,26 @@ export const publications: Publication[] = [
     id: 'pub-2',
     title: 'Dropout Is the Absorbing State: Discrete Diffusion for Single-Cell Gene Expression Imputation',
     authors: 'R.A.J.C. Adhikari et al.',
-    venue: 'AAAI 2027',
+    venue: 'AAAI 2027 (submitted July 2026)',
     year: '2027',
     status: 'Under review',
     description: [
       'Reformulated scRNA-seq dropout as the absorbing state of a discrete diffusion process: expression is tokenized into per-gene quantile bins and only candidate dropout entries are corrupted toward a reserved [MASK] state, so measured entries stay immutable, non-negativity holds by construction, and each gene receives a full categorical distribution rather than a conditional mean.',
       'Designed a role-conditioned Transformer denoiser and a confidence-first parallel decoding scheme that exploits the monotonicity of the absorbing chain to reconstruct the matrix in a few passes instead of a full ancestral trajectory.',
       'Against 9 baselines (MAGIC, scImpute, SAVER, ALRA, DCA, scVI, scIGANs, scIDPMs) on 4 simulated datasets at 50–72% dropout, achieved the best rank correlation (ρ 0.90–0.94) and lowest log-scale RMSE (0.55–0.61) on every dataset, and won 20 of 21 cell-type clustering views across 3 real datasets.',
+    ],
+  },
+  {
+    id: 'pub-2b',
+    title: 'RCT-PEARL: Annotated Periapical Radiograph Dataset for AI-Based Quality Assessment of Root Canal Treatment',
+    authors: 'S. Rasnayaka, R.M. Jayasinghe, A. Hewage, M. Fonseka, C. Adhikari, et al.',
+    venue: 'Nature Scientific Data (submitted July 2026)',
+    year: '2026',
+    status: 'Under review',
+    description: [
+      'A public dataset of 1,311 anonymized intraoral periapical radiographs of root canal treated teeth, with region annotations for treated teeth and filling instances, root apex keypoints, and per-filling quality labels for filling length, lateral seal, voids, and irregularities — 1,585 treated teeth, 2,241 filling instances and 2,257 apex points, with separated instruments and missed canals marked where visible.',
+      'Performed the anonymization and de-identification of the radiographs (OCR-assisted text removal and inpainting), configured the annotation platform, curated and quality-controlled the released dataset, and co-wrote the manuscript.',
+      'Released with an official train/validation/test split balanced on filling-level label distributions, and benchmarked for treated-tooth and filling instance segmentation (YOLO11n-Seg), root apex keypoint detection (YOLOv8n/YOLO11n-Pose) and per-filling quality classification (ResNet18/34).',
     ],
   },
   {
